@@ -1,10 +1,9 @@
 package models.dto;
 
-import models.User;
-
 public class UserDto {
     private String title;
-    private User user;
+    private String name;
+    private String lastname;
 
     public String getTitle() {
         return title;
@@ -14,12 +13,20 @@ public class UserDto {
         this.title = title;
     }
 
-    public User getUser() {
-        return user;
+    public String getName() {
+        return name;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
 }

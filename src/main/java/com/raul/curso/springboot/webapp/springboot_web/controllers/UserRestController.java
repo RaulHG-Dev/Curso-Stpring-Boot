@@ -30,7 +30,8 @@ public class UserRestController {
     public UserDto getMethodNameDto() {
         UserDto userDto = new UserDto();
         User user = new User("Raul", "Hernandez");
-        userDto.setUser(user);
+        userDto.setName(user.getName());
+        userDto.setLastname(user.getLastname());
         userDto.setTitle("Hola Spring Boot");
 
         // Retorna un JSON con los datos del usuario, Spring Boot se encargará de convertir el UserDto a JSON automáticamente
