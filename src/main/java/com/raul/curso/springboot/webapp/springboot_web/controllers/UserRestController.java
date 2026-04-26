@@ -1,6 +1,9 @@
 package com.raul.curso.springboot.webapp.springboot_web.controllers;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +39,20 @@ public class UserRestController {
 
         // Retorna un JSON con los datos del usuario, Spring Boot se encargará de convertir el UserDto a JSON automáticamente
         return userDto;
+    }
+
+    @GetMapping("/details-rest-list")
+    public List<User> list() {
+        User user1 = new User("Raul", "Hernandez");
+        User user2 = new User("Maria", "Gomez");
+        User user3 = new User("Juan", "Perez");
+
+        List<User> users = Arrays.asList(user1, user2, user3);
+        // List<User> users = new ArrayList<>();
+        // users.add(user1);
+        // users.add(user2);
+        // users.add(user3);
+        return users;
     }
     
 }
