@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import models.User;
+import models.dto.UserDto;
 
 
 @RestController  // Esta anotación indica que esta clase es un controlador REST, lo que significa que los métodos de esta clase devolverán datos (como JSON) en lugar de vistas (como HTML)
@@ -23,6 +24,17 @@ public class UserRestController {
 
         // Retorna un JSON con los datos del usuario, Spring Boot se encargará de convertir el Map a JSON automáticamente
         return body;
+    }
+
+    @GetMapping("/details-rest-dto")
+    public UserDto getMethodNameDto() {
+        UserDto userDto = new UserDto();
+        User user = new User("Raul", "Hernandez");
+        userDto.setUser(user);
+        userDto.setTitle("Hola Spring Boot");
+
+        // Retorna un JSON con los datos del usuario, Spring Boot se encargará de convertir el UserDto a JSON automáticamente
+        return userDto;
     }
     
 }
