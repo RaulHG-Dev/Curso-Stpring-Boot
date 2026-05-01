@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import models.User;
+
 
 @Controller
 public class UserController {
@@ -15,9 +17,13 @@ public class UserController {
         Map<String, Object> map
     ) {
         // You can use both Model and Map to pass data to the view, they are essentially the same
-        model.addAttribute("title", "Hola Spring Boot");
-        model.addAttribute("name", "Raul");
-        map.put("age", 30);
+        // model.addAttribute("title", "Hola Spring Boot");
+        // model.addAttribute("name", "Raul");
+        // map.put("age", 30);
+        User user = new User("Raul", "Hernandez");
+        // user.setEmail("raul.hernandez@example.com");
+        model.addAttribute("title", "Esto es un título");
+        model.addAttribute("user", user);
         // Retorna el nombre de la plantilla Thymeleaf que se va a renderizar, en este caso "details.html"
         return "details";
     }

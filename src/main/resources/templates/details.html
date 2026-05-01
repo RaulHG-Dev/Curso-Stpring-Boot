@@ -6,8 +6,15 @@
     <title th:text="${title}">Details</title>
 </head>
 <body>
-    <h1>Hola mundo spring!</h1>
+    <!-- <h1>Hola mundo spring!</h1>
     <p th:text="'Hello, ' + ${name} + '!'">Details page content goes here.</p>
-    <p th:text="'Age: ' + ${age}">Age goes here.</p>
+    <p th:text="'Age: ' + ${age}">Age goes here.</p> -->
+    <h1 th:text="${title}">User Details</h1>
+    <ul>
+        <li th:text="${user.name}"></li>
+        <li th:text="${user.lastname}"></li>
+        <li th:if="${user.email}" th:text="${user.email}"></li>
+        <li th:if="${user.email == null}" th:text="'No email provided'"></li>
+    </ul>
 </body>
 </html>
