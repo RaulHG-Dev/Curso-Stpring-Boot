@@ -7,6 +7,24 @@
 </head>
 <body>
     <h1 th:text="${title}"></h1>
-    <div th:if="${users.size() == 0}" th:text="'No tiene elementos usuarios'"></div>
+    <div th:if="${users.isEmpty()}" th:text="'No tiene elementos usuarios'"></div>
+    
+    <table border="1" th:if="${!users.isEmpty()}">
+        <thead>
+            <tr>
+                <th>nombre</th>
+                <th>apellido</th>
+                <th>correo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.lastname}"></td>
+                <td th:if="${user.email}" th:text="${user.email}"></td>
+                <td th:if="${user.email == null}" th:text="'No tiene correo'"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
